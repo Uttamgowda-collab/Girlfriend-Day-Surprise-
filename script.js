@@ -1,18 +1,21 @@
-// ===== Elements =====
+// ======================================
+// ELEMENTS
+// ======================================
 
 const startBtn = document.getElementById("startBtn");
 const envelope = document.getElementById("envelope");
 
-const letterPaper = document.getElementById("letterPaper");
+const letter = document.getElementById("letter");
 const typingText = document.getElementById("typingText");
 
 const signature = document.getElementById("signature");
-
 const continueBtn = document.getElementById("continueBtn");
 
 const music = document.getElementById("music");
 
-// ===== Love Letter =====
+// ======================================
+// LOVE LETTER
+// ======================================
 
 const message = `My Lovely Gowthami ❤️
 
@@ -26,17 +29,19 @@ Your smile brightens my darkest days.
 
 Your laughter is my favourite melody.
 
-Thank you for always standing beside me.
+Thank you for standing beside me.
 
 I promise to keep loving you,
 respecting you,
-and making beautiful memories with you.
+and creating beautiful memories with you.
 
 I Love You Forever ❤️`;
 
-let i = 0;
+let index = 0;
 
-// ===== Change Scene =====
+// ======================================
+// CHANGE SCENE
+// ======================================
 
 function showScene(id){
 
@@ -50,7 +55,9 @@ document.getElementById(id).classList.add("active");
 
 }
 
-// ===== Start =====
+// ======================================
+// START
+// ======================================
 
 startBtn.addEventListener("click",()=>{
 
@@ -60,7 +67,9 @@ music.play().catch(()=>{});
 
 });
 
-// ===== Open Letter =====
+// ======================================
+// OPEN LETTER
+// ======================================
 
 envelope.addEventListener("click",()=>{
 
@@ -68,7 +77,7 @@ showScene("scene3");
 
 setTimeout(()=>{
 
-letterPaper.classList.add("show");
+letter.classList.add("show");
 
 startTyping();
 
@@ -76,13 +85,19 @@ startTyping();
 
 });
 
-// ===== Typing =====
+// ======================================
+// TYPE LETTER
+// ======================================
 
 function startTyping(){
 
 typingText.innerHTML="";
 
-i=0;
+signature.classList.remove("show");
+
+continueBtn.classList.remove("show");
+
+index=0;
 
 typeLetter();
 
@@ -90,7 +105,7 @@ typeLetter();
 
 function typeLetter(){
 
-if(i>=message.length){
+if(index>=message.length){
 
 signature.classList.add("show");
 
@@ -100,7 +115,7 @@ return;
 
 }
 
-const ch=message.charAt(i);
+const ch=message.charAt(index);
 
 if(ch=="\n"){
 
@@ -112,90 +127,88 @@ typingText.innerHTML+=ch;
 
 }
 
-i++;
+index++;
 
-let speed=45;
+let speed=65;
 
-if(ch=="."||ch=="!"||ch=="?"){
+if(ch==".") speed=700;
 
-speed=650;
+if(ch==",") speed=250;
 
-}
-
-else if(ch==","){
-
-speed=250;
-
-}
+if(ch=="\n") speed=500;
 
 setTimeout(typeLetter,speed);
 
   }
-// ===== Continue Button =====
+// ======================================
+// CONTINUE BUTTON
+// ======================================
 
-continueBtn.addEventListener("click",()=>{
+continueBtn.addEventListener("click", () => {
 
-showScene("scene4");
+    showScene("scene4");
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-showScene("scene5");
+        showScene("scene5");
 
-},7000);
+    }, 8000);
 
 });
 
-// ===== Floating Petals =====
+// ======================================
+// FLOATING PETALS & SPARKLES
+// ======================================
 
-const petals=["🌸","🌷","✨","💖"];
+const effects = ["🌸", "🌷", "✨", "💖"];
 
-function createPetal(){
+function createEffect() {
 
-const petal=document.createElement("div");
+    const effect = document.createElement("div");
 
-petal.innerHTML=petals[Math.floor(Math.random()*petals.length)];
+    effect.innerHTML =
+        effects[Math.floor(Math.random() * effects.length)];
 
-petal.style.position="fixed";
+    effect.style.position = "fixed";
+    effect.style.left = Math.random() * 100 + "vw";
+    effect.style.top = "-40px";
 
-petal.style.left=Math.random()*100+"vw";
+    effect.style.fontSize =
+        (16 + Math.random() * 18) + "px";
 
-petal.style.top="-40px";
+    effect.style.pointerEvents = "none";
+    effect.style.opacity = ".9";
+    effect.style.zIndex = "999";
 
-petal.style.fontSize=(16+Math.random()*20)+"px";
+    effect.style.animation =
+        `fall ${6 + Math.random() * 4}s linear forwards`;
 
-petal.style.pointerEvents="none";
+    document.body.appendChild(effect);
 
-petal.style.opacity=".9";
+    setTimeout(() => {
 
-petal.style.zIndex="999";
+        effect.remove();
 
-petal.style.animation=
-`fall ${5+Math.random()*5}s linear forwards`;
-
-document.body.appendChild(petal);
-
-setTimeout(()=>{
-
-petal.remove();
-
-},10000);
+    }, 10000);
 
 }
 
-setInterval(createPetal,700);
+setInterval(createEffect, 700);
 
-// ===== Falling Animation =====
+// ======================================
+// FALL ANIMATION
+// ======================================
 
-const style=document.createElement("style");
+const style = document.createElement("style");
 
-style.innerHTML=`
+style.innerHTML = `
 
 @keyframes fall{
 
 0%{
 
 transform:
-translateY(-40px)
+translateY(-50px)
 rotate(0deg);
 
 opacity:0;
@@ -223,3 +236,23 @@ opacity:0;
 `;
 
 document.head.appendChild(style);
+
+// ======================================
+// OPTIONAL:
+// Press SPACE to skip to next scene
+// (Remove this if you don't want it.)
+// ======================================
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.code === "Space") {
+
+        if (document.getElementById("scene4").classList.contains("active")) {
+
+            showScene("scene5");
+
+        }
+
+    }
+
+});
