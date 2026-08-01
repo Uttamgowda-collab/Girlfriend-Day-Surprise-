@@ -1,4 +1,23 @@
-/* ======================================
+@keyframes buttonGlow{
+
+0%,100%{
+
+box-shadow:0 0 15px hotpink;
+
+transform:translateX(-50%) scale(1);
+
+}
+
+50%{
+
+box-shadow:0 0 35px deeppink;
+
+transform:translateX(-50%) scale(1.08);
+
+}
+
+}
+ji/* ======================================
    RESET
 ====================================== */
 
@@ -309,15 +328,19 @@ display:block;
 
 #continueBtn{
 
-display:none;
+position:fixed;
 
-margin:35px auto 0;
+bottom:25px;
 
-padding:15px 35px;
+left:50%;
+
+transform:translateX(-50%);
+
+padding:16px 40px;
 
 border:none;
 
-border-radius:40px;
+border-radius:50px;
 
 background:linear-gradient(45deg,#ff4d88,#ff8fb8);
 
@@ -325,13 +348,17 @@ color:white;
 
 font-size:18px;
 
+font-weight:bold;
+
 cursor:pointer;
 
-}
+display:none;
 
-#continueBtn.show{
+z-index:9999;
 
-display:block;
+box-shadow:0 0 25px hotpink;
+
+animation:buttonGlow 1.5s infinite;
 
 }
 
