@@ -1,24 +1,5 @@
-@keyframes buttonGlow{
-
-0%,100%{
-
-box-shadow:0 0 15px hotpink;
-
-transform:translateX(-50%) scale(1);
-
-}
-
-50%{
-
-box-shadow:0 0 35px deeppink;
-
-transform:translateX(-50%) scale(1.08);
-
-}
-
-}
-ji/* ======================================
-   RESET
+/* ======================================
+RESET
 ====================================== */
 
 *{
@@ -36,15 +17,14 @@ overflow:hidden;
 
 font-family:'Poppins',sans-serif;
 
-background:
-linear-gradient(180deg,#080013,#120022,#1a0033,#050008);
+background:linear-gradient(180deg,#090015,#17002d,#090015);
 
 color:white;
 
 }
 
 /* ======================================
-   SCENES
+SCENES
 ====================================== */
 
 .scene{
@@ -62,9 +42,9 @@ display:none;
 justify-content:center;
 align-items:center;
 
-padding:25px;
+padding:20px;
 
-animation:fadeScene 1s;
+animation:fade .8s;
 
 }
 
@@ -75,53 +55,43 @@ display:flex;
 }
 
 /* ======================================
-   INTRO CARD
+INTRO
 ====================================== */
 
 .introCard{
 
 width:90%;
-max-width:560px;
+max-width:500px;
 
 padding:40px;
 
 text-align:center;
 
-border-radius:30px;
-
 background:rgba(255,255,255,.08);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 
-box-shadow:
-0 0 40px rgba(255,105,180,.25);
+border-radius:25px;
+
+box-shadow:0 0 30px rgba(255,80,180,.25);
 
 }
 
 .tulip{
 
-font-size:120px;
+font-size:110px;
 
-animation:tulipFloat 4s ease-in-out infinite;
-
-filter:
-drop-shadow(0 0 20px hotpink);
+animation:float 3s ease-in-out infinite;
 
 }
 
 .introCard h1{
 
-margin-top:15px;
-
 font-family:'Great Vibes',cursive;
 
-font-size:58px;
+font-size:56px;
 
-text-shadow:
-
-0 0 15px hotpink,
-
-0 0 30px deeppink;
+margin-top:15px;
 
 }
 
@@ -129,17 +99,15 @@ text-shadow:
 
 margin-top:15px;
 
-font-size:30px;
+font-size:28px;
 
-color:#ffd7eb;
+color:#ffd6eb;
 
 }
 
 .introCard p{
 
 margin-top:20px;
-
-opacity:.9;
 
 line-height:1.8;
 
@@ -149,14 +117,13 @@ line-height:1.8;
 
 margin-top:30px;
 
-padding:15px 34px;
+padding:15px 35px;
 
 border:none;
 
-border-radius:40px;
+border-radius:50px;
 
-background:
-linear-gradient(45deg,#ff4d88,#ff8fb8);
+background:linear-gradient(45deg,#ff4d88,#ff9fc5);
 
 color:white;
 
@@ -164,22 +131,12 @@ font-size:18px;
 
 cursor:pointer;
 
-transition:.35s;
-
-box-shadow:
-
-0 0 25px hotpink;
-
-}
-
-#startBtn:hover{
-
-transform:scale(1.05);
+box-shadow:0 0 20px hotpink;
 
 }
 
 /* ======================================
-   HEART SCENE
+HEART SCENE
 ====================================== */
 
 .heartScene{
@@ -188,7 +145,7 @@ text-align:center;
 
 }
 
-.bigHeart{
+.heartGlow{
 
 font-size:120px;
 
@@ -202,33 +159,33 @@ margin-top:20px;
 
 font-family:'Great Vibes',cursive;
 
-font-size:58px;
+font-size:52px;
 
 }
 
 #envelope{
 
-margin-top:25px;
+font-size:80px;
 
-font-size:85px;
+margin-top:25px;
 
 cursor:pointer;
 
-animation:envelopeFloat 3s ease-in-out infinite;
+animation:float 2.8s ease-in-out infinite;
 
 }
 
 .heartScene p{
 
-margin-top:15px;
+margin-top:18px;
 
 font-size:18px;
 
 opacity:.9;
 
-}
+   }
 /* ======================================
-   LETTER
+LETTER
 ====================================== */
 
 .letterWrapper{
@@ -246,33 +203,30 @@ padding:20px;
 
 .letter{
 
-width:90%;
+width:92%;
 max-width:700px;
 
-background:#fff9ef;
+background:#fffaf2;
 
 color:#3d2b2b;
 
-padding:40px;
+padding:35px;
 
 border-radius:20px;
 
-box-shadow:
-0 0 40px rgba(255,255,255,.35);
+box-shadow:0 0 40px rgba(255,255,255,.25);
 
 display:none;
 
-transform:scale(.85);
+transform:scale(.9);
 
-transition:.8s;
+transition:.6s;
 
 }
 
 .letter.show{
 
 display:block;
-
-transform:scale(1);
 
 animation:letterOpen .8s ease;
 
@@ -282,13 +236,13 @@ animation:letterOpen .8s ease;
 
 font-family:'Great Vibes',cursive;
 
-font-size:48px;
+font-size:46px;
 
 text-align:center;
 
-color:#d63384;
-
 margin-bottom:25px;
+
+color:#d63384;
 
 }
 
@@ -296,7 +250,7 @@ margin-bottom:25px;
 
 font-size:19px;
 
-line-height:2;
+line-height:1.9;
 
 white-space:pre-line;
 
@@ -308,15 +262,15 @@ min-height:260px;
 
 display:none;
 
-margin-top:30px;
+margin-top:25px;
 
 font-family:'Great Vibes',cursive;
 
-font-size:38px;
+font-size:36px;
 
 text-align:right;
 
-color:#c2185b;
+color:#d63384;
 
 }
 
@@ -328,6 +282,8 @@ display:block;
 
 #continueBtn{
 
+display:none;
+
 position:fixed;
 
 bottom:25px;
@@ -336,40 +292,55 @@ left:50%;
 
 transform:translateX(-50%);
 
-padding:16px 40px;
+padding:15px 35px;
 
 border:none;
 
-border-radius:50px;
+border-radius:40px;
 
-background:linear-gradient(45deg,#ff4d88,#ff8fb8);
+background:linear-gradient(45deg,#ff4d88,#ff9fc5);
 
 color:white;
 
 font-size:18px;
 
-font-weight:bold;
-
 cursor:pointer;
-
-display:none;
-
-z-index:9999;
 
 box-shadow:0 0 25px hotpink;
 
-animation:buttonGlow 1.5s infinite;
+z-index:999;
+
+}
+
+#continueBtn.show{
+
+display:block;
 
 }
 
 /* ======================================
-   LOVE HEART
+LOVE HEART
 ====================================== */
+
+.heartWrapper{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:100%;
+
+height:100%;
+
+}
 
 .loveHeart{
 
-width:320px;
-height:320px;
+width:300px;
+
+height:300px;
 
 background:#ff4d88;
 
@@ -377,9 +348,7 @@ position:relative;
 
 transform:rotate(-45deg);
 
-animation:heartbeatHeart 1.3s infinite;
-
-box-shadow:0 0 40px hotpink;
+animation:heartBeatBig 1.3s infinite;
 
 }
 
@@ -390,8 +359,9 @@ content:"";
 
 position:absolute;
 
-width:320px;
-height:320px;
+width:300px;
+
+height:300px;
 
 background:#ff4d88;
 
@@ -401,19 +371,21 @@ border-radius:50%;
 
 .loveHeart::before{
 
-top:-160px;
+top:-150px;
+
 left:0;
 
 }
 
 .loveHeart::after{
 
-left:160px;
+left:150px;
+
 top:0;
 
 }
 
-.heartCenter{
+.heartText{
 
 position:absolute;
 
@@ -429,41 +401,43 @@ align-items:center;
 
 transform:rotate(45deg);
 
-z-index:2;
+z-index:5;
 
 color:white;
 
 }
 
-.heartCenter h1{
+.heartText h1{
 
 font-family:'Great Vibes',cursive;
 
-font-size:42px;
+font-size:40px;
 
 }
 
-.middleHeart{
+.insideHeart{
 
-font-size:40px;
+font-size:34px;
 
 margin:12px 0;
 
 }
 
-.heartCenter p{
+.heartText p{
 
-margin-top:10px;
+margin-top:12px;
 
 font-size:18px;
 
 }
 
 /* ======================================
-   FINAL CARD
+FINAL CARD
 ====================================== */
 
-.finalCard{
+.endingCard{
+
+width:90%;
 
 max-width:650px;
 
@@ -475,23 +449,23 @@ text-align:center;
 
 background:rgba(255,255,255,.08);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 
-box-shadow:0 0 30px rgba(255,80,160,.25);
+box-shadow:0 0 30px rgba(255,105,180,.25);
 
 }
 
-.finalCard h1{
+.endingCard h1{
 
 font-family:'Great Vibes',cursive;
 
 font-size:56px;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
-.finalCard p{
+.endingCard p{
 
 font-size:20px;
 
@@ -499,87 +473,52 @@ line-height:2;
 
 }
 
-.finalCard h2{
+.endingCard h2{
 
 margin-top:30px;
 
 font-family:'Great Vibes',cursive;
 
-font-size:42px;
+font-size:40px;
 
-color:#ffd7eb;
+color:#ffd6eb;
 
-        }
-
+}
 /* ======================================
-   ANIMATIONS
+ANIMATIONS
 ====================================== */
 
-@keyframes fadeScene{
+@keyframes fade{
 
 from{
 
 opacity:0;
-transform:scale(.96);
+
+transform:scale(.97);
 
 }
 
 to{
 
 opacity:1;
+
 transform:scale(1);
 
 }
 
 }
 
-@keyframes tulipFloat{
+@keyframes float{
 
 0%,100%{
 
-transform:translateY(0px);
+transform:translateY(0);
 
 }
 
 50%{
 
-transform:translateY(-15px);
-
-}
-
-}
-
-@keyframes envelopeFloat{
-
-0%,100%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
-}
-
-@keyframes letterOpen{
-
-from{
-
-opacity:0;
-
-transform:translateY(50px) scale(.8);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0px) scale(1);
+transform:translateY(-12px);
 
 }
 
@@ -601,7 +540,7 @@ transform:scale(1.12);
 
 }
 
-@keyframes heartbeatHeart{
+@keyframes heartBeatBig{
 
 0%,100%{
 
@@ -617,54 +556,28 @@ transform:rotate(-45deg) scale(1.08);
 
 }
 
-@keyframes stars{
+@keyframes letterOpen{
 
-0%,100%{
-
-opacity:.4;
-
-}
-
-50%{
-
-opacity:1;
-
-}
-
-}
-
-@keyframes petals{
-
-0%{
-
-transform:
-translateY(-50px)
-rotate(0deg);
+from{
 
 opacity:0;
 
+transform:translateY(40px) scale(.8);
+
 }
 
-10%{
+to{
 
 opacity:1;
 
-}
-
-100%{
-
-transform:
-translateY(110vh)
-rotate(360deg);
-
-opacity:0;
+transform:translateY(0) scale(1);
 
 }
 
 }
 
 /* ======================================
-   MOBILE
+MOBILE
 ====================================== */
 
 @media(max-width:768px){
@@ -687,15 +600,21 @@ font-size:24px;
 
 }
 
-.bigHeart{
+.tulip{
 
 font-size:90px;
 
 }
 
+.heartGlow{
+
+font-size:95px;
+
+}
+
 .heartScene h1{
 
-font-size:42px;
+font-size:40px;
 
 }
 
@@ -708,6 +627,10 @@ font-size:70px;
 .letter{
 
 padding:25px;
+
+max-height:80vh;
+
+overflow-y:auto;
 
 }
 
@@ -727,65 +650,65 @@ line-height:1.8;
 
 .loveHeart{
 
-width:240px;
+width:220px;
 
-height:240px;
+height:220px;
 
 }
 
 .loveHeart::before{
 
-width:240px;
+width:220px;
 
-height:240px;
+height:220px;
 
-top:-120px;
+top:-110px;
 
 }
 
 .loveHeart::after{
 
-width:240px;
+width:220px;
 
-height:240px;
+height:220px;
 
-left:120px;
-
-}
-
-.heartCenter h1{
-
-font-size:32px;
+left:110px;
 
 }
 
-.middleHeart{
+.heartText h1{
 
 font-size:30px;
 
 }
 
-.finalCard{
+.insideHeart{
+
+font-size:28px;
+
+}
+
+.endingCard{
 
 padding:25px;
 
 }
 
-.finalCard h1{
+.endingCard h1{
 
 font-size:42px;
 
 }
 
-.finalCard p{
+.endingCard p{
 
 font-size:18px;
 
 }
 
-.finalCard h2{
+.endingCard h2{
 
-font-size:34px;
+font-size:32px;
 
 }
 
