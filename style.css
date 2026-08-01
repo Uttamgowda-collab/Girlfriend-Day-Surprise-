@@ -1,0 +1,518 @@
+/* ==========================================
+        RESET
+========================================== */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html,
+body{
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(
+180deg,
+#090014,
+#120022,
+#1b0033,
+#050008
+);
+
+color:white;
+
+}
+
+/* ==========================================
+        SCENES
+========================================== */
+
+.scene{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+padding:25px;
+
+animation:fadeScene 1s;
+
+}
+
+.scene.active{
+
+display:flex;
+
+}
+
+/* ==========================================
+        CARD
+========================================== */
+
+.card{
+
+width:90%;
+max-width:550px;
+
+padding:40px;
+
+border-radius:35px;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 0 40px rgba(255,80,160,.25);
+
+text-align:center;
+
+}
+
+/* ==========================================
+        FLOWER
+========================================== */
+
+.flower{
+
+font-size:120px;
+
+animation:
+flowerFloat 4s ease-in-out infinite;
+
+filter:
+drop-shadow(0 0 20px hotpink);
+
+}
+
+/* ==========================================
+        TITLE
+========================================== */
+
+.card h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:60px;
+
+margin-top:15px;
+
+text-shadow:
+
+0 0 15px hotpink,
+
+0 0 30px deeppink;
+
+}
+
+.card h2{
+
+margin-top:15px;
+
+font-size:30px;
+
+color:#ffd6ec;
+
+}
+
+/* ==========================================
+        BUTTON
+========================================== */
+
+#startBtn{
+
+margin-top:30px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+45deg,
+#ff4d88,
+#ff9cc4
+);
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:
+
+0 0 20px hotpink;
+
+}
+
+#startBtn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ==========================================
+        HEART BOX
+========================================== */
+
+.heartBox{
+
+text-align:center;
+
+}
+
+.mainHeart{
+
+font-size:120px;
+
+animation:
+heartbeat 1.2s infinite;
+
+}
+
+.heartBox h1{
+
+margin-top:20px;
+
+font-family:'Great Vibes',cursive;
+
+font-size:58px;
+
+}
+
+#envelope{
+
+font-size:80px;
+
+margin-top:25px;
+
+cursor:pointer;
+
+animation:
+floatEnvelope 3s ease-in-out infinite;
+
+}
+
+.heartBox p{
+
+margin-top:18px;
+
+font-size:18px;
+
+opacity:.9;
+
+}
+/* ==========================================
+        LETTER
+========================================== */
+
+.letterContainer{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:100%;
+
+height:100%;
+
+}
+
+.letterPaper{
+
+width:90%;
+
+max-width:700px;
+
+background:#fff8ec;
+
+color:#3b2b2b;
+
+padding:40px;
+
+border-radius:18px;
+
+box-shadow:
+0 0 40px rgba(255,255,255,.25);
+
+display:none;
+
+transform:scale(.8);
+
+transition:.8s;
+
+position:relative;
+
+}
+
+.letterPaper.show{
+
+display:block;
+
+transform:scale(1);
+
+animation:letterOpen .8s ease;
+
+}
+
+.letterPaper h2{
+
+font-family:'Great Vibes',cursive;
+
+font-size:50px;
+
+text-align:center;
+
+color:#d63384;
+
+margin-bottom:30px;
+
+}
+
+#typingText{
+
+font-size:20px;
+
+line-height:2;
+
+white-space:pre-line;
+
+min-height:280px;
+
+}
+
+.signature{
+
+display:none;
+
+margin-top:25px;
+
+font-family:'Great Vibes',cursive;
+
+font-size:38px;
+
+color:#c2185b;
+
+text-align:right;
+
+}
+
+.signature.show{
+
+display:block;
+
+animation:fadeIn .8s;
+
+}
+
+#continueBtn{
+
+display:none;
+
+margin:30px auto 0;
+
+padding:14px 34px;
+
+border:none;
+
+border-radius:40px;
+
+background:linear-gradient(45deg,#ff4d88,#ff9cc4);
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+#continueBtn.show{
+
+display:block;
+
+}
+
+/* ==========================================
+        LOVE HEART
+========================================== */
+
+.loveHeart{
+
+width:320px;
+
+height:320px;
+
+background:#ff4d88;
+
+transform:rotate(-45deg);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+animation:heartbeat 1.4s infinite;
+
+box-shadow:0 0 35px hotpink;
+
+}
+
+.loveHeart::before,
+.loveHeart::after{
+
+content:"";
+
+width:320px;
+
+height:320px;
+
+background:#ff4d88;
+
+border-radius:50%;
+
+position:absolute;
+
+}
+
+.loveHeart::before{
+
+top:-160px;
+
+left:0;
+
+}
+
+.loveHeart::after{
+
+left:160px;
+
+top:0;
+
+}
+
+.heartText{
+
+position:absolute;
+
+transform:rotate(45deg);
+
+text-align:center;
+
+z-index:2;
+
+color:white;
+
+}
+
+.heartText h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:42px;
+
+}
+
+.middleHeart{
+
+font-size:38px;
+
+margin:10px 0;
+
+}
+
+.heartText p{
+
+margin-top:10px;
+
+font-size:18px;
+
+}
+
+/* ==========================================
+        FINAL CARD
+========================================== */
+
+.finalCard{
+
+text-align:center;
+
+padding:40px;
+
+max-width:650px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:25px;
+
+backdrop-filter:blur(12px);
+
+box-shadow:0 0 30px rgba(255,80,160,.25);
+
+}
+
+.finalCard h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:58px;
+
+margin-bottom:25px;
+
+}
+
+.finalCard p{
+
+font-size:20px;
+
+line-height:2;
+
+}
+
+.finalCard h2{
+
+margin-top:30px;
+
+font-family:'Great Vibes',cursive;
+
+font-size:42px;
+
+color:#ffd6ec;
+
+}
+
+/* ==========================================
+        ANIMATIONS
+========================================== */
+
+@keyframes heartbeat
