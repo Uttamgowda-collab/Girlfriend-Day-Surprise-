@@ -4,17 +4,14 @@
 
 const startBtn = document.getElementById("startBtn");
 const envelope = document.getElementById("envelope");
-
 const letter = document.getElementById("letter");
 const typingText = document.getElementById("typingText");
-
 const signature = document.getElementById("signature");
 const continueBtn = document.getElementById("continueBtn");
-
 const music = document.getElementById("music");
 
 // ======================================
-// LOVE LETTER
+// MESSAGE
 // ======================================
 
 const message = `My Lovely Gowthami ❤️
@@ -40,7 +37,7 @@ I Love You Forever ❤️`;
 let index = 0;
 
 // ======================================
-// CHANGE SCENE
+// SCENE FUNCTION
 // ======================================
 
 function showScene(id){
@@ -56,7 +53,7 @@ document.getElementById(id).classList.add("active");
 }
 
 // ======================================
-// START
+// START BUTTON
 // ======================================
 
 startBtn.addEventListener("click",()=>{
@@ -68,7 +65,7 @@ music.play().catch(()=>{});
 });
 
 // ======================================
-// OPEN LETTER
+// ENVELOPE
 // ======================================
 
 envelope.addEventListener("click",()=>{
@@ -81,12 +78,12 @@ letter.classList.add("show");
 
 startTyping();
 
-},700);
+},600);
 
 });
 
 // ======================================
-// TYPE LETTER
+// TYPING
 // ======================================
 
 function startTyping(){
@@ -132,10 +129,8 @@ index++;
 let speed=65;
 
 if(ch==".") speed=700;
-
-if(ch==",") speed=250;
-
-if(ch=="\n") speed=500;
+else if(ch==",") speed=250;
+else if(ch=="\n") speed=500;
 
 setTimeout(typeLetter,speed);
 
@@ -144,72 +139,73 @@ setTimeout(typeLetter,speed);
 // CONTINUE BUTTON
 // ======================================
 
-continueBtn.addEventListener("click", () => {
+continueBtn.addEventListener("click",()=>{
 
-    showScene("scene4");
+showScene("scene4");
 
-    setTimeout(() => {
+// Stay on the heart scene for 8 seconds
 
-        showScene("scene5");
+setTimeout(()=>{
 
-    }, 8000);
+showScene("scene5");
+
+},8000);
 
 });
 
 // ======================================
-// FLOATING PETALS & SPARKLES
+// FALLING PETALS & SPARKLES
 // ======================================
 
-const effects = ["🌸", "🌷", "✨", "💖"];
+const effects=["🌸","🌷","✨","💖"];
 
-function createEffect() {
+function createEffect(){
 
-    const effect = document.createElement("div");
+const e=document.createElement("div");
 
-    effect.innerHTML =
-        effects[Math.floor(Math.random() * effects.length)];
+e.innerHTML=effects[Math.floor(Math.random()*effects.length)];
 
-    effect.style.position = "fixed";
-    effect.style.left = Math.random() * 100 + "vw";
-    effect.style.top = "-40px";
+e.style.position="fixed";
 
-    effect.style.fontSize =
-        (16 + Math.random() * 18) + "px";
+e.style.left=Math.random()*100+"vw";
 
-    effect.style.pointerEvents = "none";
-    effect.style.opacity = ".9";
-    effect.style.zIndex = "999";
+e.style.top="-50px";
 
-    effect.style.animation =
-        `fall ${6 + Math.random() * 4}s linear forwards`;
+e.style.fontSize=(16+Math.random()*20)+"px";
 
-    document.body.appendChild(effect);
+e.style.pointerEvents="none";
 
-    setTimeout(() => {
+e.style.zIndex="9999";
 
-        effect.remove();
+e.style.opacity=".9";
 
-    }, 10000);
+e.style.animation=`fall ${6+Math.random()*4}s linear forwards`;
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},10000);
 
 }
 
-setInterval(createEffect, 700);
+setInterval(createEffect,700);
 
 // ======================================
 // FALL ANIMATION
 // ======================================
 
-const style = document.createElement("style");
+const style=document.createElement("style");
 
-style.innerHTML = `
+style.innerHTML=`
 
 @keyframes fall{
 
 0%{
 
-transform:
-translateY(-50px)
-rotate(0deg);
+transform:translateY(-50px) rotate(0deg);
 
 opacity:0;
 
@@ -223,9 +219,7 @@ opacity:1;
 
 100%{
 
-transform:
-translateY(110vh)
-rotate(360deg);
+transform:translateY(110vh) rotate(360deg);
 
 opacity:0;
 
@@ -237,22 +231,3 @@ opacity:0;
 
 document.head.appendChild(style);
 
-// ======================================
-// OPTIONAL:
-// Press SPACE to skip to next scene
-// (Remove this if you don't want it.)
-// ======================================
-
-document.addEventListener("keydown", (e) => {
-
-    if (e.code === "Space") {
-
-        if (document.getElementById("scene4").classList.contains("active")) {
-
-            showScene("scene5");
-
-        }
-
-    }
-
-});
